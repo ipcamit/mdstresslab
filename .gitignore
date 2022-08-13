@@ -14,3 +14,7 @@
 /**/.project
 /**/.cproject
 /build/
+cmake-build-release
+*.so
+/**/*.so
+.idea

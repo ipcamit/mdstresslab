@@ -20,7 +20,7 @@ public:
 
 	BoxConfiguration(int,int);
 	BoxConfiguration(std::string,int);
-	virtual ~BoxConfiguration();
+	~BoxConfiguration();
 };
 
 #endif /* ATOMISTICSYSTEM_H_ */
