@@ -6,6 +6,7 @@
 #include <string>
 
 #include "BoxConfiguration.h"
+#include "kim.h"
 
 namespace py = pybind11;
 
@@ -18,4 +19,8 @@ PYBIND11_MODULE(pymdstresslab, m){
             //  .def(py::init<std::string, int>())
             .def("read",&BoxConfiguration::read)
             .def("getConfiguration",&BoxConfiguration::getConfiguration);
+
+    py::class_<Kim>(m, "Kim")
+            .def(py::init<>())
+            .def(py::init<std::string>());
 }

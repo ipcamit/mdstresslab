@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 
+# set the project name
+project(MDStressLab++ VERSION 1.0)
+
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -std=c++14")
 # --------- ONLY For My Laptop, TO BE REMOVED-------------
 if (${BUILD_MACHINE} STREQUAL "MY_LAPTOP")
@@ -10,8 +13,8 @@ if (${BUILD_MACHINE} STREQUAL "MY_LAPTOP")
 endif ()
 # --------------------------------------------------------
 
-# set the project name
-project(MDStressLab++ VERSION 1.0)
+# find the kim api package
+find_package(KIM-API 2.2 REQUIRED CONFIG)
 
 # Include directories
 include_directories(${PROJECT_SOURCE_DIR}/include/MDStressLab++)
@@ -26,8 +29,11 @@ include_directories(pybind11/include)
 
 add_subdirectory(pybind11)
 include_directories("include/MDStressLab++/Eigen")
-include_directories("include/MDStressLab++")
+#include_directories("include/MDStressLab++")
 pybind11_add_module(pymdstresslab py_modules.cpp
                         src/BoxConfiguration.cpp
                         src/Configuration.cpp
-                        src/neighbor_list.cpp)
+                        src/neighbor_list.cpp
+                        src/kim.cpp)
+
+target_link_libraries(pymdstresslab PUBLIC KIM-API::kim-api)
