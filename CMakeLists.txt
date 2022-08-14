@@ -34,6 +34,11 @@ pybind11_add_module(pymdstresslab py_modules.cpp
                         src/BoxConfiguration.cpp
                         src/Configuration.cpp
                         src/neighbor_list.cpp
-                        src/kim.cpp)
+                        src/kim.cpp
+                        src/Sphere.cpp
+                        include/MDStressLab++/Grid.h
+                        include/MDStressLab++/SubConfiguration.h
+                        include/MDStressLab++/Stencil.h
+                        include/MDStressLab++/calculateStress.h)
 
 target_link_libraries(pymdstresslab PUBLIC KIM-API::kim-api)
