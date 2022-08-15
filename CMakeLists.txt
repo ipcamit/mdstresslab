@@ -37,7 +37,8 @@ pybind11_add_module(pymdstresslab py_modules.cpp
                         src/kim.cpp
                         src/Sphere.cpp
                         include/MDStressLab++/Grid.h
-                        include/MDStressLab++/SubConfiguration.h
+                        src/SubConfiguration.cpp
+                        src/InteratomicForces.cpp
                         include/MDStressLab++/Stencil.h
                         include/MDStressLab++/calculateStress.h)
 

@@ -24,11 +24,11 @@ public:
 	std::map<int,int> particleContributingMap;
 
 	template<ConfigType configType>
-	void expandStencil(const Grid<configType>* pgrid, const double&, const double&);
+	void inline expandStencil(const Grid<configType>* pgrid, const double&, const double&);
 
-	void emptyStencil();
-	Stencil(const Configuration&);
-	virtual ~Stencil();
+	void inline emptyStencil();
+	inline Stencil(const Configuration&);
+	virtual inline ~Stencil();
 
 };
 

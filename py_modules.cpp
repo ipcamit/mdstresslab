@@ -58,6 +58,8 @@ PYBIND11_MODULE(pymdstresslab, m){
             .def(py::init<Configuration&>());
     py::class_<SubConfiguration,Configuration>(m, "SubConfiguration")
             .def(py::init<Stencil &>());
+    py::class_<InteratomicForces>(m, "InteratomicForces")
+            .def(py::init<NeighList*>());
 
     m.def("calculateStressCauchy",[](BoxConfiguration & body, Kim & kim, Stress<Sphere,Cauchy>& stress){
         calculateStress(body, kim, std::tie(stress));
